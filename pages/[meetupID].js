@@ -1,8 +1,15 @@
 import { MongoClient, ObjectId } from "mongodb"
+import Head from "next/head"
 
 import MeetupDetail from "../components/meetups/MeetupDetail.js"
 export default function MeetupDetails(props) {
-  return <MeetupDetail {...props.meetup} />
+  return <>
+    <Head>
+      <title>{props.meetup.title} | React Meetups</title>
+      <meta name="description" content={props.meetup.description} />
+    </Head>
+    <MeetupDetail {...props.meetup} />
+  </>
 }
 
 export async function getStaticProps(context) {

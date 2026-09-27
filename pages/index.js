@@ -1,8 +1,15 @@
 import { MongoClient } from "mongodb"
+import Head from "next/head"
 import MeetupList from "../components/meetups/MeetupList.js"
 
 export default function HomePage(props) {
-  return <MeetupList meetups={props.meetups} />
+  return <>
+    <Head>
+      <title>Home | React Meetups</title>
+      <meta name="description" content="View and create meetups for others to join" />
+    </Head>
+    <MeetupList meetups={props.meetups} />
+  </>
 }
 
 export async function getStaticProps() {
