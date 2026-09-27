@@ -6,6 +6,32 @@ const DATA = {
   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 }
 import MeetupDetail from "../components/meetups/MeetupDetail.js"
-export default function MeetupDetails() {
-  return <MeetupDetail {...DATA} />
+export default function MeetupDetails(props) {
+  return <MeetupDetail {...props.meetup} />
+}
+
+export async function getStaticProps(context) {
+  return {
+    props: {
+      meetup: DATA
+    }
+  }
+}
+
+export async function getStaticPaths() {
+  return {
+    paths: [
+      {
+        params: {
+          meetupID: "m1"
+        }
+      },
+      {
+        params: {
+          meetupID: "m1"
+        }
+      }
+    ],
+    fallback: false
+  }
 }

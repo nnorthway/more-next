@@ -17,6 +17,15 @@ const DATA = [
   }
 ]
 
-export default function HomePage() {
-  return <MeetupList meetups={DATA} />
+export default function HomePage(props) {
+  return <MeetupList meetups={props.meetups} />
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      meetups: DATA
+    },
+    revalidate: 10
+  }
 }
