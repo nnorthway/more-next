@@ -19,7 +19,6 @@ export async function getStaticProps(context) {
   const id = new ObjectId(context.params.meetupID)
   const meetup = await meetupsCollection.findOne({_id: id},{})
   client.close()
-  console.log(meetup)
   return {
     props: {
       meetup: {
@@ -41,6 +40,6 @@ export async function getStaticPaths() {
   client.close()
   return {
     paths: meetups.map(el => ({params: {meetupID: el._id.toString()}})),
-    fallback: false
+    fallback: "blocking"
   }
 }
