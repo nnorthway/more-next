@@ -1,0 +1,15 @@
+.meetup_item {
+  --border-radius: 8px;
+  box-shadow: 0 0 4px 2px rgba(0,0,0,.2);
+  border-radius: var(--border-radius);
+}
+.meetup_item img {
+  width: 100%;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+.meetup_item .content {
+  padding: .5em;
+}
+.meetup_item .content h1 {
+  margin: 0;
+}
